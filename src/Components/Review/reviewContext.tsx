@@ -1,14 +1,13 @@
 import { createContext, useContext } from "react";
 import React, { useReducer, useState } from "react";
-import {InitialStateType, ACTION, payloadObj} from './types'
-import {reducerFunc} from './quizContReducer';
-import {Quiz, quizData} from '../../data/quiz.data'
 
+type InitialStateType = {
+    wrongAnswers: []
+}
 const initialStateReducer : InitialStateType = {
-  score: 0,
-  questionNo: 0,
-  ansStatus: ""
+  wrongAnswers : []
 };
+
 type QuizContextData  = {
   state: InitialStateType,
   dispatch: (action: ACTION) => void,
@@ -40,7 +39,7 @@ export const QuizProvider: React.FC = ({ children }) => {
   const [userName, setUserName] = useState<string>("");
   const [quizName, setQuizName] = useState<Quiz | string>("quiz1");
 
-  return <QuizContext.Provider value={{state, dispatch, inQuiz, setInQuiz, userName, setUserName, quizName, setQuizName}}>
+  return <QuizContext.Provider value={{state, dispatch}}>
       {children}
   </QuizContext.Provider>;
 };

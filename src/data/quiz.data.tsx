@@ -9,7 +9,7 @@ type Questions = {
     options: Option[]
 }
 
-type Quiz = {
+export type Quiz = {
     quizName: string,
     difficulty: string,
     questions: Questions[]

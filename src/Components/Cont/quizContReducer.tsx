@@ -5,26 +5,20 @@ export const reducerFunc = (state: InitialStateType, action : ACTION) => {
       case "RESET":
         return state = {
           score: 0,
-          questionNo: 1,
+          questionNo: 0,
           ansStatus: ""
          };
       case "NEXT_QUESTION":
-         if(state.questionNo < 4){  
+         if(state.questionNo <= 4){  
           return  {...state,
             questionNo: state.questionNo + 1,
             ansStatus: ""
             };
         } else {
           return {
-            ...state, questionNo: 1, ansStatus: ""
+            ...state, questionNo: 0, ansStatus: ""
           }
         }
-      // case "NEXT_QUESTION":
-      //     return  {...state,
-      //       questionNo: state.questionNo + 1,
-      //       ansStatus: ""
-      //     };
-        
       case "CHECK":
         return (action.payload.isRight ? {...state, score: state.score + 5, ansStatus: "Right Answer"} 
           :

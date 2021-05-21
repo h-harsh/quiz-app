@@ -1,12 +1,13 @@
 import { useQuiz } from "../Components/Cont/quizContext";
 import { QuestionDisplay } from "../Components/questionDisplay";
-import {Header} from '../Components/header'
+import { Header } from "../Components/header";
+import { useState } from "react";
 
 export const QuizPlay = () => {
-  const { inQuiz, dispatch, setInQuiz, setUserName } = useQuiz();
+  const { inQuiz, dispatch, setInQuiz, setUserName, quizName } = useQuiz();
   return (
     <>
-    <Header />
+      <Header />
       {inQuiz ? null : (
         <div>
           <h1>Rules For quiz</h1>
@@ -18,9 +19,7 @@ export const QuizPlay = () => {
       )}
       {inQuiz ? (
         <div>
-            <QuestionDisplay />
-
-          
+          <QuestionDisplay />
         </div>
       ) : null}
     </>
