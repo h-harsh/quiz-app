@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export const QuestionDisplay = () => {
-  const { dispatch, state, setInQuiz, setUserName, quizName } =
+  const { dispatch, state, setInQuiz, setUserName, quizName, temp, setTemp } =
     useQuiz();
   const [count, setCount] = useState(10);
-  const [temp, setTemp] = useState<Quiz | null>(null);
+  // const [temp, setTemp] = useState<Quiz | null>(null);
   let navigate = useNavigate();
 
   const baseUrl = "https://quiz-app-backend.harshporwal1.repl.co";
@@ -16,7 +16,7 @@ export const QuestionDisplay = () => {
   useEffect(() => {
     (async function getQuizData() {
       const response = await axios.get(`${baseUrl}/allQuiz`);
-      console.log(response.data, "yes");
+      // console.log(response.data, "yes");
       if (quizName === "quiz1") {
         setTemp(response.data.quiz1.quiz1);
       } else if (quizName === "quiz2") {
@@ -47,6 +47,9 @@ export const QuestionDisplay = () => {
   if (state.questionNo === 4) {
     navigate("end");
   }
+
+// console.log(temp)
+
 
   return (
     <>

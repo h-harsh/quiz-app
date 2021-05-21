@@ -6,7 +6,8 @@ export const reducerFunc = (state: InitialStateType, action : ACTION) => {
         return state = {
           score: 0,
           questionNo: 0,
-          ansStatus: ""
+          ansStatus: "",
+          wrongAnswered: []
          };
       case "NEXT_QUESTION":
          if(state.questionNo <= 4){  
@@ -22,7 +23,7 @@ export const reducerFunc = (state: InitialStateType, action : ACTION) => {
       case "CHECK":
         return (action.payload.isRight ? {...state, score: state.score + 5, ansStatus: "Right Answer"} 
           :
-          {...state, score: state.score - 3, ansStatus: "Wrong answer"}
+          {...state, ansStatus: "Wrong answer", wrongAnswered: [...state.wrongAnswered, state.questionNo]}
            )
       case "END_QUIZ":
         return state;

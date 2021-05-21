@@ -1,13 +1,15 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import React, { useReducer, useState } from "react";
 import {InitialStateType, ACTION, payloadObj} from './types'
 import {reducerFunc} from './quizContReducer';
 import {Quiz, quizData} from '../../data/quiz.data'
+import axios from 'axios'
 
 const initialStateReducer : InitialStateType = {
   score: 0,
   questionNo: 0,
-  ansStatus: ""
+  ansStatus: "",
+  wrongAnswered: []
 };
 type QuizContextData  = {
   state: InitialStateType,
@@ -17,7 +19,9 @@ type QuizContextData  = {
   userName: string,
   setUserName: (userName: string) => void,
   quizName: object | string ,
-  setQuizName: (quizName: string | Quiz) => void
+  setQuizName: (quizName: string | Quiz) => void,
+  temp: Quiz | null ,
+  setTemp: (temp: null | Quiz) => void,
 
 }
  
@@ -29,7 +33,9 @@ export const quizContextDefaultValue: QuizContextData = {
   userName:"",
   setUserName: () => null,
   quizName:"quiz1",
-  setQuizName: () => null
+  setQuizName: () => null,
+  temp:null,
+  setTemp: () => null
 }
  
 export const QuizContext = createContext<QuizContextData>(quizContextDefaultValue);
@@ -39,8 +45,18 @@ export const QuizProvider: React.FC = ({ children }) => {
   const [inQuiz, setInQuiz] = useState<boolean>(false);
   const [userName, setUserName] = useState<string>("");
   const [quizName, setQuizName] = useState<Quiz | string>("quiz1");
+  const [temp, setTemp] = useState<Quiz | null>(null);
+  const baseUrl = "https://quiz-app-backend.harshporwal1.repl.co";
 
-  return <QuizContext.Provider value={{state, dispatch, inQuiz, setInQuiz, userName, setUserName, quizName, setQuizName}}>
+  useEffect(() => {
+    (async function getQuizData() {
+      const response = await axios.get(`${baseUrl}/quiz1`);
+      setTemp(response.data.item.quiz1)
+    })();
+  }, []);
+  console.log(temp)
+
+  return <QuizContext.Provider value={{state, dispatch, inQuiz, setInQuiz, userName, setUserName, quizName, setQuizName, temp, setTemp}}>
       {children}
   </QuizContext.Provider>;
 };

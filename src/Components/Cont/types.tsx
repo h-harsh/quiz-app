@@ -2,6 +2,7 @@ export type InitialStateType = {
   score: number;
   questionNo: number;
   ansStatus: string;
+  wrongAnswered: number[];
 };
 
 export type payloadObj = {
