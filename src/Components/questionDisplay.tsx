@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { Quiz, quizData } from "../data/quiz.data";
 import { useQuiz } from "./Cont/quizContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Button } from "@material-ui/core";
+
+
 
 export const QuestionDisplay = () => {
   const { dispatch, state, setInQuiz, setUserName, quizName, temp, setTemp } =
@@ -48,8 +50,7 @@ export const QuestionDisplay = () => {
     navigate("end");
   }
 
-// console.log(temp)
-
+  // console.log(temp)
 
   return (
     <>
@@ -62,10 +63,12 @@ export const QuestionDisplay = () => {
               return <h2>{item.question}</h2>;
             }
           })}
+          <div style={{display: "flex", flexDirection: "column", alignItems: "center"}} >
           {temp.questions[state.questionNo].options.map((item) => {
             return (
-              <button
-                className="options"
+              <Button
+              className="options"
+              style={{display: "block", textAlign: "center"}}
                 onClick={() => {
                   state.questionNo === 4
                     ? dispatch({ type: "CHECK", payload: item })
@@ -73,34 +76,40 @@ export const QuestionDisplay = () => {
                   dispatch({ type: "CHECK", payload: item });
                   setCount(10);
                 }}
-              >
-                {item.text}
-              </button>
+              variant="outlined">{item.text}</Button>
+              
             );
           })}
+          </div>
         </div>
       ) : (
-        <h1>HAo</h1>
+        <h1>Loadingzz...</h1>
       )}
       <div>
-        <button
+        <Button
           onClick={() => {
             dispatch({ type: "RESET" });
             setInQuiz(false);
             setUserName("");
           }}
+          variant="contained"
+          color="secondary"
         >
           Reset
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => {
             dispatch({ type: "NEXT_QUESTION", payload: "option" });
             setCount(10);
           }}
+          variant="contained"
+          color="primary"
         >
           Skip
-        </button>
+        </Button>
       </div>
     </>
   );
 };
+
+

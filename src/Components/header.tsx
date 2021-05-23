@@ -1,17 +1,14 @@
+import { Link } from "react-router-dom";
 import { useQuiz } from "./Cont/quizContext";
+import HomeIcon from '@material-ui/icons/Home';
 
 export const Header = () => {
   const { state, userName, inQuiz } = useQuiz();
   return (
     <>
-      <h1>Quiz Masteer </h1>
-      <h1>Hello {userName}</h1>
-      {inQuiz ? (
-        <div>
-          <h2>Score {state.score}</h2>
-          <h2>Question no. {state.questionNo}</h2>
-        </div>
-      ) : null}
+    <div style={{background: "whitesmoke", margin: "0", padding: "0"}} >
+      <h1 style={{margin: "0", padding: "1.5rem", textDecoration: "none"}} > <Link to="/" > <HomeIcon /> Quiz Master</Link> </h1>
+      </div>
     </>
   );
 };

@@ -1,8 +1,8 @@
 import { createContext, useContext, useEffect } from "react";
 import React, { useReducer, useState } from "react";
-import {InitialStateType, ACTION, payloadObj} from './types'
+import {InitialStateType, ACTION} from './types'
 import {reducerFunc} from './quizContReducer';
-import {Quiz, quizData} from '../../data/quiz.data'
+import {Quiz} from '../../data/quiz.data'
 import axios from 'axios'
 
 const initialStateReducer : InitialStateType = {

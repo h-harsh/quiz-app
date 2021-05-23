@@ -45,3 +45,62 @@
   margin-bottom: 1rem;
   cursor: pointer;
 }
+.only-bg{
+  background-image: linear-gradient(to right, #00467F, #A5CC82);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.sub-box{
+  background-image: linear-gradient(to right, #00467F, #A5CC82);
+  background-size: cover;
+  background-repeat: no-repeat;
+   height: 100vh;  
+  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+}
+.glass {
+  /* position: absolute; */
+  z-index: 1;
+  /* left: 50%; */
+  /* top: 50%; */
+  /* transform: translate(-50%, -50%); */
+  max-width: 30rem;
+  /* height: 600px; */
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(2551 255, 255, 0.1);
+  box-shadow: 30px 30px 40px rgba( 0, 0, 0, 0.2);
+  border-radius: 80px;
+  backdrop-filter: blur(10px);
+  /* display: inline-block; */
+}
+.cont-1{
+  padding: 3rem 2rem;
+}
+a, Link{
+  text-decoration: none;
+  color: black;
+}
+
+
+@media screen and (min-width: 599px) {
+  .quizOptions{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+  /* .btn-box{
+    width: 100% !important ;
+    display: inline !important;
+  } */
+  .glass{
+    max-width: 50rem;
+  }
+}
