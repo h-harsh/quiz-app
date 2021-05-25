@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useQuiz } from "../Components/Cont/quizContext";
+import { useQuiz } from "../Components/Quiz Context/quizContext";
 import {Header} from '../Components/header'
 import {Button} from '@material-ui/core'
 

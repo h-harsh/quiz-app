@@ -1,15 +1,15 @@
-import { useQuiz } from "./Cont/quizContext";
+import { useQuiz } from "./Quiz Context/quizContext";
 import { Link } from "react-router-dom";
 import { Header } from "./header";
 import { useState } from "react";
-import { ButtonBases } from "./Materialui/ButtonBases";
 import Button from "@material-ui/core/Button";
 import TextField from '@material-ui/core/TextField'
 
 export const WelcomeUser = () => {
-  const { dispatch, setUserName, setQuizName, userName, inQuiz } = useQuiz();
+  const { dispatch, setUserName, setQuizName, userName, inQuiz, quizName } = useQuiz();
   const [tempUserName, setTempUserName] = useState("");
   const [toggle, setToggle] = useState(false);
+  console.log(quizName);
 
   return (
     <>
@@ -37,32 +37,9 @@ export const WelcomeUser = () => {
           <h1>Hello {userName}</h1>
           <h2>Buddy you have 3 quiz choices</h2>
           <div className="quizOptions">
-            <div  >
-          <ButtonBases 
-            imagea={
-              "https://images.unsplash.com/photo-1535320903710-d993d3d77d29?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-            }
-            name={"Investor"}
-            onClick={() => setQuizName("quiz1")}
-          />
-          
-          <ButtonBases
-            imagea={
-              "https://images.unsplash.com/photo-1565374391015-af899382f2a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-            }
-            name={"Trading"}
-            onClick={() => setQuizName("quiz2")}
-          />
-          </div>
-          <div>
-          <ButtonBases
-            imagea={
-              "https://images.unsplash.com/photo-1540835296355-c04f7a063cbb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-            }
-            name={"General"}
-            onClick={() => setQuizName("quiz3")}
-          />
-          </div>
+            <button onClick={() => setQuizName("quiz1")} > Investing </button>
+            <button onClick={() => setQuizName("quiz2")} > Trading </button>
+            <button onClick={() => setQuizName("quiz3")} > General </button>
           </div>
             <div style={{margin:"1rem"}}>
           <Button variant="contained" color="secondary">

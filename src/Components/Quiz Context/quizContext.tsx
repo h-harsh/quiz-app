@@ -42,21 +42,13 @@ export const QuizContext = createContext<QuizContextData>(quizContextDefaultValu
 
 export const QuizProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFunc, initialStateReducer);
+
   const [inQuiz, setInQuiz] = useState<boolean>(false);
   const [userName, setUserName] = useState<string>("");
   const [quizName, setQuizName] = useState<Quiz | string>("quiz1");
   const [temp, setTemp] = useState<Quiz | null>(null);
-  const baseUrl = "https://quiz-app-backend.harshporwal1.repl.co";
 
-  useEffect(() => {
-    (async function getQuizData() {
-      const response = await axios.get(`${baseUrl}/quiz1`);
-      setTemp(response.data.item.quiz1)
-    })();
-  }, []);
-  console.log(temp)
-
-  return <QuizContext.Provider value={{state, dispatch, inQuiz, setInQuiz, userName, setUserName, quizName, setQuizName, temp, setTemp}}>
+  return  <QuizContext.Provider value={{state, dispatch, inQuiz, setInQuiz, userName, setUserName, quizName, setQuizName, temp, setTemp}}>
       {children}
   </QuizContext.Provider>;
 };

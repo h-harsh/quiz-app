@@ -1,4 +1,4 @@
-import { useQuiz } from "../Components/Cont/quizContext";
+import { useQuiz } from "../Components/Quiz Context/quizContext";
 import { QuestionDisplay } from "../Components/questionDisplay";
 import { Header } from "../Components/header";
 import Button from '@material-ui/core/Button'

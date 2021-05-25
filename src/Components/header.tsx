@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useQuiz } from "./Cont/quizContext";
+import { useQuiz } from "./Quiz Context/quizContext";
 import HomeIcon from '@material-ui/icons/Home';
 
 export const Header = () => {
