@@ -3,12 +3,13 @@ import { useQuiz } from "./Quiz Context/quizContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button } from "@material-ui/core";
+import { useUserData } from "./UserData Context/userDataContext";
 
 
 
 export const QuestionDisplay = () => {
-  const { dispatch, state, setInQuiz, setUserName, quizName, temp, setTemp } =
-    useQuiz();
+  const { dispatch, state } = useQuiz();
+  const {userState, userDispatch} = useUserData();
   const [count, setCount] = useState(10);
   let navigate = useNavigate();
 
@@ -18,21 +19,22 @@ export const QuestionDisplay = () => {
     (async function getQuizData() {
       const response = await axios.get(`${baseUrl}/allQuiz`);
       console.log(response.data, "yes");
-      if (quizName === "quiz1") {
-        setTemp(response.data.quiz1.quiz1);
-      } else if (quizName === "quiz2") {
-        setTemp(response.data.quiz2.quiz2);
-      } else if (quizName === "quiz3") {
-        setTemp(response.data.quiz3.quiz3);
+      if (userState.currentQuiz === "quiz1") {
+        userDispatch({type: 'SET_QUIZ_DATA', payload: response.data.quiz1.quiz1})
+      } else if (userState.currentQuiz === "quiz2") {
+        userDispatch({type: 'SET_QUIZ_DATA', payload: response.data.quiz2.quiz2})
+      } else if (userState.currentQuiz === "quiz3") {
+        userDispatch({type: 'SET_QUIZ_DATA', payload: response.data.quiz3.quiz3})
       }
     })();
-  }, [quizName]);
+  }, [userState.currentQuiz]);
 
-  // console.log(quizName, temp)
+  console.log(userState)
 
   useEffect(() => {
     if (count === 0) {
       if (state.questionNo > 4) {
+        
         navigate("end");
       } else {
         dispatch({ type: "NEXT_QUESTION", payload: "option" });
@@ -55,22 +57,22 @@ export const QuestionDisplay = () => {
     <>
       <h2>Status: {state.ansStatus} </h2>
       <h3>Timer {count}</h3>
-      {temp !== null ? (
+      {userState.quizData !== undefined ? (
         <div>
-          {temp.questions.map((item, i) => {
+          {userState.quizData.questions.map((item, i) => {
             if (i === state.questionNo) {
               return <h2>{item.question}</h2>;
             }
           })}
           <div style={{display: "flex", flexDirection: "column", alignItems: "center"}} >
-          {temp.questions[state.questionNo].options.map((item) => {
+          {userState.quizData.questions[state.questionNo].options.map((item) => {
             return (
               <Button
               className="options"
               style={{display: "block", textAlign: "center"}}
                 onClick={() => {
                   state.questionNo === 4
-                    ? dispatch({ type: "CHECK", payload: item })
+                    ? dispatch({ type: "CHECK", payload: item }) 
                     : dispatch({ type: "NEXT_QUESTION", payload: "option" });
                   dispatch({ type: "CHECK", payload: item });
                   setCount(10);
@@ -88,8 +90,8 @@ export const QuestionDisplay = () => {
         <Button
           onClick={() => {
             dispatch({ type: "RESET" });
-            setInQuiz(false);
-            setUserName("");
+            userDispatch({type: 'SET_OUT_QUIZ', payload: false})
+            userDispatch({type: 'NAME', payload: ""})
           }}
           variant="contained"
           color="secondary"

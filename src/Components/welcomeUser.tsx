@@ -1,19 +1,20 @@
 import { useQuiz } from "./Quiz Context/quizContext";
 import { Link } from "react-router-dom";
-import { Header } from "./header";
 import { useState } from "react";
+import {useUserData} from './UserData Context/userDataContext'
 import Button from "@material-ui/core/Button";
 import TextField from '@material-ui/core/TextField'
 
 export const WelcomeUser = () => {
-  const { dispatch, setUserName, setQuizName, userName, inQuiz, quizName } = useQuiz();
+  const { dispatch } = useQuiz();
+  const {userState, userDispatch} = useUserData();
   const [tempUserName, setTempUserName] = useState("");
   const [toggle, setToggle] = useState(false);
-  console.log(quizName);
+  
+  console.log(userState)
 
   return (
     <>
-      <Header />
       <div className="sub-box">
       {!toggle ? (
         <div className="glass cont-1"  >
@@ -22,7 +23,8 @@ export const WelcomeUser = () => {
           <TextField onChange={(e) => setTempUserName(e.target.value)} id="outlined-basic" label="Name" variant="outlined" />
           <div>
           <Button onClick={() => {
-              setUserName(tempUserName);
+              // setUserName(tempUserName);
+              userDispatch({type: 'NAME', payload: tempUserName})
               setToggle(true);
             }}
            variant="contained" color="secondary">
@@ -34,12 +36,12 @@ export const WelcomeUser = () => {
       <div >
       {toggle   ? (
         <div className="glass"  >
-          <h1>Hello {userName}</h1>
+          <h1>Hello {userState.userName}</h1>
           <h2>Buddy you have 3 quiz choices</h2>
           <div className="quizOptions">
-            <button onClick={() => setQuizName("quiz1")} > Investing </button>
-            <button onClick={() => setQuizName("quiz2")} > Trading </button>
-            <button onClick={() => setQuizName("quiz3")} > General </button>
+            <button onClick={() => userDispatch({type: 'SET_QUIZ_NAME', payload: 'quiz1'})} > Investing </button>
+            <button onClick={() => userDispatch({type: 'SET_QUIZ_NAME', payload: 'quiz2'})} > Trading </button>
+            <button onClick={() => userDispatch({type: 'SET_QUIZ_NAME', payload: 'quiz3'})} > General </button>
           </div>
             <div style={{margin:"1rem"}}>
           <Button variant="contained" color="secondary">

@@ -14,4 +14,5 @@ export type ACTION =
   | { type: "NEXT_QUESTION"; payload: string }
   | { type: "CHECK"; payload: payloadObj }
   | { type: "RESET" }
-  | { type: "END_QUIZ" };
+  | { type: "END_QUIZ" }
+  | {type: 'CHECKS', payload:{item: payloadObj, item2:}}

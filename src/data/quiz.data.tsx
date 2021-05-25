@@ -1,19 +1,4 @@
-type Option = {
-    text: string,
-    isRight: boolean
-}
-
-type Questions = {
-    question: string,
-    points: number,
-    options: Option[]
-}
-
-export type Quiz = {
-    quizName: string,
-    difficulty: string,
-    questions: Questions[]
-}
+import {Quiz} from './quizdata.types'
 
 export const quizData: Quiz = {
     quizName: "Finance Testing",

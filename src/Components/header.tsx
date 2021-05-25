@@ -3,7 +3,7 @@ import { useQuiz } from "./Quiz Context/quizContext";
 import HomeIcon from '@material-ui/icons/Home';
 
 export const Header = () => {
-  const { state, userName, inQuiz } = useQuiz();
+  const { state } = useQuiz();
   return (
     <>
     <div style={{background: "whitesmoke", margin: "0", padding: "0"}} >
