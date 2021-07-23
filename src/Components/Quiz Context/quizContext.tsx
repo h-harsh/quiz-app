@@ -5,9 +5,11 @@ import {reducerFunc} from './quizContReducer';
 
 const initialStateReducer : InitialStateType = {
   score: 0,
-  questionNo: 0,
+  questionNo: 1,
   ansStatus: "",
-  wrongAnswered: []
+  wrongAnswered: [],
+  quizData: undefined,
+  answeredData: []
 };
 type QuizContextData  = {
   state: InitialStateType,
@@ -23,6 +25,8 @@ export const QuizContext = createContext<QuizContextData>(quizContextDefaultValu
 
 export const QuizProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFunc, initialStateReducer);
+
+console.log(state)
 
   return  <QuizContext.Provider value={{state, dispatch}}>
       {children}

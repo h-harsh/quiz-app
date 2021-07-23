@@ -6,8 +6,8 @@ export const userDataReducer = ( state: InitailStateReducer, action: ACTION) => 
             return {...state, userName: action.payload};
         case 'SET_QUIZ_NAME':
             return {...state, currentQuiz: action.payload}
-        case 'SET_QUIZ_DATA':
-            return {...state, quizData: action.payload};
+        // case 'SET_QUIZ_DATA':
+        //     return {...state, quizData: action.payload};
         case 'SET_IN_QUIZ':
             return {...state, quizStatus: true};
         case 'SET_OUT_QUIZ':
@@ -16,7 +16,8 @@ export const userDataReducer = ( state: InitailStateReducer, action: ACTION) => 
             return {currentQuiz: '',
             quizStatus: false,
             userName: "",
-            quizData: undefined}
+            // quizData: undefined
+        }
     
         default:
            return state;

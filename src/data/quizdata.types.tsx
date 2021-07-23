@@ -1,6 +1,7 @@
 export type Option = {
     text: string,
-    isRight: boolean
+    isRight: boolean,
+    isUserSelected: boolean
 }
 
 export type Questions = {
@@ -14,3 +15,13 @@ export type Quiz = {
     difficulty: string,
     questions: Questions[]
 }
+
+// export type Quiz = {
+//     questions: (Questions[] | {
+//         options: (Option[] | undefined)[] | undefined;
+//         question?: string | undefined;
+//         points?: number | undefined;
+//     } | undefined)[];
+//     quizName?: string | undefined;
+//     difficulty?: string | undefined;
+//   }

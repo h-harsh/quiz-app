@@ -7,9 +7,8 @@ const userDataInitailState : InitailStateReducer = {
     currentQuiz: '',
     quizStatus: false,
     userName: "",
-    quizData: undefined
+    // quizData: undefined
 }
-
 
 type UserDataContextType = { 
     userState: InitailStateReducer,

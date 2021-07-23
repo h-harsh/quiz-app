@@ -20,11 +20,11 @@ export const QuestionDisplay = () => {
       const response = await axios.get(`${baseUrl}/allQuiz`);
       console.log(response.data, "yes");
       if (userState.currentQuiz === "quiz1") {
-        userDispatch({type: 'SET_QUIZ_DATA', payload: response.data.quiz1.quiz1})
+        dispatch({type: 'SET_QUIZ_DATA', payload: response.data.quiz1.quiz1})
       } else if (userState.currentQuiz === "quiz2") {
-        userDispatch({type: 'SET_QUIZ_DATA', payload: response.data.quiz2.quiz2})
+        dispatch({type: 'SET_QUIZ_DATA', payload: response.data.quiz2.quiz2})
       } else if (userState.currentQuiz === "quiz3") {
-        userDispatch({type: 'SET_QUIZ_DATA', payload: response.data.quiz3.quiz3})
+        dispatch({type: 'SET_QUIZ_DATA', payload: response.data.quiz3.quiz3})
       }
     })();
   }, [userState.currentQuiz]);
@@ -56,16 +56,17 @@ export const QuestionDisplay = () => {
   return (
     <>
       <h2>Status: {state.ansStatus} </h2>
+      <h2>{state.questionNo}</h2>
       <h3>Timer {count}</h3>
-      {userState.quizData !== undefined ? (
+      {state.quizData !== undefined ? (
         <div>
-          {userState.quizData.questions.map((item, i) => {
-            if (i === state.questionNo) {
+          {state.quizData.questions.map((item, i) => {
+            if (i === (state.questionNo - 1)) {
               return <h2>{item.question}</h2>;
             }
           })}
           <div style={{display: "flex", flexDirection: "column", alignItems: "center"}} >
-          {userState.quizData.questions[state.questionNo].options.map((item) => {
+          {state.quizData.questions[state.questionNo -1].options.map((item) => {
             return (
               <Button
               className="options"
