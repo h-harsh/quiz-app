@@ -104,3 +104,22 @@ a, Link{
     max-width: 50rem;
   }
 }
+
+.right{
+  background-color: green !important;
+  display: block;
+}
+.wrong{
+  background-color: red;
+  display: block;
+  
+}
+.no{
+  color: black;
+}
+#no{
+  color: black;
+}
+
+
+/* className={item.isUserSelected ? "wrong": "no"} */

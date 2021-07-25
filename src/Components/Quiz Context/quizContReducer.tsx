@@ -2,60 +2,46 @@ import {InitialStateType, ACTION} from './types'
 
 export const reducerFunc = (state: InitialStateType, action : ACTION) => {
     switch (action.type) {
-      case "RESET":
-        return  {
-          score: 0,
-          questionNo: 0,
-          ansStatus: "",
-          wrongAnswered: [],
-          quizData: undefined,
-          answeredData: []
-         };
-      case "NEXT_QUESTION":
-         if(state.questionNo <= 4){  
-          return  {...state,
-            questionNo: state.questionNo + 1,
-            ansStatus: ""
-            };
-        } else {
-          return {
-            ...state, questionNo: 0, ansStatus: ""
-          }
-        }
-      case "CHECK":
-        const filteredOptions = state.quizData?.questions[state.questionNo - 1 ].options.map((option) => {
-          console.log(option.text, action.payload.text)
-          if(option.text.length == action.payload.text.length){
-            console.log(option.text, action.payload.text)
-            return{...option, isUserSelected: true}
-          } else return option
-        })
-
-        return (action.payload.isRight ? {...state, score: state.score + 5, ansStatus: "Right Answer"  } 
-          :
-          {...state, ansStatus: "Wrong answer", wrongAnswered: [...state.wrongAnswered, state.questionNo],
-          answeredData:[...state.answeredData, {question: state.quizData?.questions[state.questionNo].question, 
-          options: filteredOptions }] 
-         }
-           )
-
-      case "END_QUIZ":
-        return state;
       case "SET_QUIZ_DATA":
-        return {...state, quizData: action.payload}  
-  
+        return {...state, quizData: action.payload};
+      case "START_QUIZ":
+        return {...state, quizStatus: "true"}
+      case "SKIP":
+        // if(state.questionNo > 3){
+        //   return {...state, quizStatus: "false"}
+        // } else 
+        return {...state, questionNo: state.questionNo + 1}
+      case "END_QUIZ":
+        // return {...state, quizStatus: "false"}
+        return {...state,score: 0, questionNo: 1, quizStatus: "false"}
+      case "ANSWERED":
+        const filteredOption = state.quizData?.questions[state.questionNo - 1].options.map(item => {
+          if(item.text === action.payload.text){
+           return{...item, isUserSelected: true}
+          } else return item
+         } )
+      
+        return state =  {...state, questionNo: state.questionNo + 1,
+          score: action.payload.isRight ? state.score + 5 : state.score -3,
+         quizData: {
+           ...state.quizData,
+          //  questions: [...state.quizData?.questions, {...state.quizData?.questions[state.questionNo -1], options: filteredOption} ] } 
+           questions: state.quizData?.questions.map((questionObj, index) => {
+             if(index === state.questionNo -1){
+              return {...questionObj, options: filteredOption}
+             } else return questionObj
+           }) 
+          } } 
+        
       default:
         return state;
     }
   };
 
 
-  // quizData: {...state.quizData,  questions:  [ state.quizData?.questions, state.quizData?.questions.map((ques, i) => {
-  //   if((i+1) === state.questionNo){
-  //     return ques.options.map(opt => {
-  //       if(opt.text === action.payload.text){
-  //         return {...opt, isUserSelected: true}
-  //       } else return opt
-  //     })
-  //   }
-  // } )] }
+  // if(state.questionNo > 4){
+  //   return state =  {...state, quizStatus:"false", questionNo: state.questionNo + 1,
+  //     score: action.payload.isRight ? state.score + 5 : state.score -3,  
+  //    quizData: {...state.quizData, questions: [...state.quizData?.questions, {...state.quizData?.questions[state.questionNo -1], options: filteredOption} ] } } 
+  //   } else {
+

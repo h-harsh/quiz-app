@@ -1,18 +1,11 @@
-import { type } from 'os';
 import {Quiz, Questions, Option} from '../../data/quizdata.types'
 
-type Questions2 = {
-  question: string | undefined,
-  options: Option[] | undefined
-} 
 
 export type InitialStateType = {
   score: number;
   questionNo: number;
-  ansStatus: string;
-  wrongAnswered: number[];
   quizData: Quiz | undefined,
-  answeredData: Questions2[] 
+  quizStatus: string 
 };
 
 
@@ -22,11 +15,12 @@ export type payloadObj = {
   isRight: boolean;
   isUserSelected: boolean
 };
-
 export type ACTION =
-  | { type: "NEXT_QUESTION"; payload: string }
-  | { type: "CHECK"; payload: payloadObj }
-  | { type: "RESET" }
-  | { type: "END_QUIZ" }
-  |  {type: 'SET_QUIZ_DATA', payload: Quiz};
-  // | {type: 'CHECKS', payload:{item: payloadObj}}
+| {type: 'SET_QUIZ_DATA', payload: Quiz}
+| {type: 'START_QUIZ', payload: string}
+| {type: 'ANSWERED', payload: payloadObj}
+| {type: 'SKIP'}
+| {type: 'END_QUIZ'}
+| { type: "NEXT_QUESTION"; payload: string }
+| { type: "CHECK"; payload: payloadObj }
+| { type: "RESET" };

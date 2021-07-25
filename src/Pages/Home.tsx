@@ -1,8 +1,8 @@
-import {WelcomeUser} from '../Components/welcomeUser'
+import { QuizSelectionBox } from '../Components/Quiz Selection Box/quizSelBox'
 export const Home = () => {
     return(
         <>
-        <WelcomeUser />
+        <QuizSelectionBox/>
         </>
     )
 }
