@@ -1,0 +1,28 @@
+.login-box{
+    flex-direction: column;
+    display: inline-flex;
+    padding: 2rem;
+    border: 2px solid white;
+    margin: 1rem;
+    border-radius: 10%;
+    box-shadow: 6px 6px 8px 5px grey;
+}
+
+.login-item{
+    margin: 1rem;
+}
+.an{
+    padding: 0 !important; 
+}
+.login-box input {
+    font-size: 1.2rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+@media screen and (max-width:450px){
+    .login-box{
+        margin: 0;
+        padding: 0.5rem;
+    }
+}

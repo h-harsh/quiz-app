@@ -1,0 +1,16 @@
+.right-ans{
+    background-color: green !important;
+    display: block;
+  }
+  .wrong{
+    background-color: red;
+    display: block;
+    
+  }
+  .no{
+    color: black;
+  }
+  #no{
+    color: black;
+  }
+  

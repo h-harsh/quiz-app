@@ -1,0 +1,36 @@
+.signup-box{
+    flex-direction: column;
+    display: inline-flex;
+    padding: 2rem;
+    border: 2px solid white;
+    margin: 1rem;
+    border-radius: 10%;
+    box-shadow: 6px 6px 8px 5px grey;
+}
+
+.signup-item{
+    margin: 1rem;
+
+}
+.an{
+    padding: 0 !important; 
+}
+.signup-box input {
+    font-size: 1.2rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+@media screen and (max-width:450px){
+    .signup-box{
+        margin: 0;
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width:350px){
+    .signup-item{
+        margin: 0.5rem;
+    }
+}

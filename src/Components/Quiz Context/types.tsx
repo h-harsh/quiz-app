@@ -1,14 +1,25 @@
 import {Quiz, Questions, Option} from '../../data/quizdata.types'
 
+type UserData = {
+  quizName:String,
+  score:Number
+}
+
+type User = {
+  fullName: string,
+  username: string,
+  email: string,
+  password: string,
+  userData: UserData[]
+}
 
 export type InitialStateType = {
   score: number;
   questionNo: number;
   quizData: Quiz | undefined,
-  quizStatus: string 
+  quizStatus: string,
+  user: User | undefined 
 };
-
-
 
 export type payloadObj = {
   text: string;
@@ -21,6 +32,4 @@ export type ACTION =
 | {type: 'ANSWERED', payload: payloadObj}
 | {type: 'SKIP'}
 | {type: 'END_QUIZ'}
-| { type: "NEXT_QUESTION"; payload: string }
-| { type: "CHECK"; payload: payloadObj }
-| { type: "RESET" };
+| {type: "LOAD_USER", payload: User}

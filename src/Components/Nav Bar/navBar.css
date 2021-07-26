@@ -1,0 +1,9 @@
+.nav-itm  a{
+    color: black !important;
+}
+
+@media screen and (max-width: 460px){
+    .resp {
+        display: none;
+    }
+}

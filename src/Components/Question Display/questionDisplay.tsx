@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useQuiz } from "../Quiz Context/quizContext";
+import { postScore } from "../../utils/apiCalls";
+import { useAuth } from "../Auth/authContext";
 
 export const NewQuestionDisplay = () => {
   const { state, dispatch } = useQuiz();
-  const [count, setCount] = useState(1000);
+  const [count, setCount] = useState(30);
   const navigate = useNavigate();
+  const { token } = useAuth();
 
   useEffect(() => {
     if (count === 0) {
       dispatch({ type: "SKIP" });
-      setCount(10);
+      setCount(30);
     }
     let timer = setInterval(() => {
       setCount(count - 1);
@@ -18,15 +21,22 @@ export const NewQuestionDisplay = () => {
     return () => clearInterval(timer);
   }, [count]);
 
-  
-  if (state.questionNo > 4 || state.quizData === undefined) {
-      navigate("/end");
-      dispatch({type:"END_QUIZ"})
-    console.log("quiz End")
+  useEffect(() => {
+    // || state.quizData === undefined
+    if (state.questionNo > 4 ) {
+      postScore(token, state.quizData.quizName, state.score);
     }
+  }, [state.questionNo]);
+
+  if (state.questionNo > 4 ) {
+    navigate("/end");
+    dispatch({ type: "END_QUIZ" });
+    // postScore(token, state.quizData.quizName, state.score);
+  }
   return (
-    <div>
-      {state.quizStatus === "true" ? (
+    <>
+
+      {state.quizStatus === "true"  && state.quizData !== undefined? (
         <div>
           <h1>{count}</h1>
           <h2>{state.questionNo}</h2>
@@ -34,25 +44,33 @@ export const NewQuestionDisplay = () => {
           {state.quizData?.questions[state.questionNo - 1].options.map(
             (item) => {
               return (
-              <button
-              onClick={() => dispatch({type:'ANSWERED', payload: item})}
-              >{item.text}</button>
+                <button
+                  onClick={() => dispatch({ type: "ANSWERED", payload: item })}
+                >
+                  {item.text}
+                </button>
               );
             }
           )}
           <button
             onClick={() => {
               dispatch({ type: "SKIP" });
-              setCount(10);
+              setCount(30);
             }}
           >
             Skip
           </button>
           <button
-          onClick={() => {dispatch({type:"END_QUIZ"}); navigate("/end")}}
-          >End</button>
+            onClick={() => {
+              dispatch({ type: "END_QUIZ" });
+              navigate("/end");
+            }}
+          >
+            End
+          </button>
         </div>
-      ) : null}
-    </div>
+      ) : navigate("/") }
+
+    </>
   );
 };

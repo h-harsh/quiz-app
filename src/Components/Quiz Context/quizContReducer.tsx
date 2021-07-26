@@ -4,12 +4,11 @@ export const reducerFunc = (state: InitialStateType, action : ACTION) => {
     switch (action.type) {
       case "SET_QUIZ_DATA":
         return {...state, quizData: action.payload};
+      case "LOAD_USER":
+        return {...state, user: action.payload};
       case "START_QUIZ":
         return {...state, quizStatus: "true"}
       case "SKIP":
-        // if(state.questionNo > 3){
-        //   return {...state, quizStatus: "false"}
-        // } else 
         return {...state, questionNo: state.questionNo + 1}
       case "END_QUIZ":
         // return {...state, quizStatus: "false"}
