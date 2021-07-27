@@ -16,7 +16,7 @@ export const NavBar = () => {
       <nav className="top-nav" id="myTopNav">
         <ul>
           <li className="nav-itm nav-itm-text" onClick={showSideBar}>
-            BArs
+          <i className="fas fa-bars"></i>
           </li>
           <li className="nav-itm nav-itm-text">
             <Link to="/">Quiz Master</Link>
@@ -34,17 +34,22 @@ export const NavBar = () => {
           ) : null}
           {!token ? (
             <li className="nav-itm nav-itm-text right resp-icon">
-              <Link to="/login">LOginss</Link>
+              <Link to="/login"><i className="fas fa-sign-in-alt"></i></Link>
             </li>
           ) : null}
           {!token ? (
             <li className="nav-itm nav-itm-text right resp-icon">
-              <Link to="/signup">Signupss</Link>
+              <Link to="/signup"><i className="fas fa-user-plus"></i></Link>
             </li>
           ) : null}
           {token ? (
-            <li className="nav-itm nav-itm-text right" onClick={() => logoutHandler()}>
+            <li className="nav-itm nav-itm-text right resp-txt" onClick={() => logoutHandler()}>
               Logout
+            </li>
+          ) : null}
+          {token ? (
+            <li className="nav-itm nav-itm-text right resp-icon" onClick={() => logoutHandler()}>
+              <i className="fas fa-power-off"></i>
             </li>
           ) : null}
         </ul>

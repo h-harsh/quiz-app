@@ -1,9 +1,25 @@
-.nav-itm  a{
-    color: black !important;
+#myTopNav{
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    background-color: #252d4a;
+    border: none !important;
+    color: white;
 }
+/* .nav-itm  a{
+    color: black !important;
+} */
 
-@media screen and (max-width: 460px){
-    .resp {
+@media screen and (max-width: 500px){
+    .resp-txt {
         display: none;
+    }
+    .resp-icon{
+        display: inline-block;
+    }
+}
+@media screen and (max-width: 400px){
+    .nav-itm{
+        margin: 0.2rem;
     }
 }

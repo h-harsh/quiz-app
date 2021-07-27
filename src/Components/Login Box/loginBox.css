@@ -2,11 +2,23 @@
     flex-direction: column;
     display: inline-flex;
     padding: 2rem;
-    border: 2px solid white;
     margin: 1rem;
     border-radius: 10%;
-    box-shadow: 6px 6px 8px 5px grey;
+    box-shadow: 10px 10px 42px 0px rgb(0 0 0 / 75%);
+    background-color: #252d4a;
 }
+.login-box input{
+    background-color: #252d4a;
+    color: white;
+}
+.nm-btn2{
+    background-color: white !important;
+    color: #252d4a;
+} 
+.nm-btn2:hover{
+    background-color: whitesmoke !important;
+    color: #252d4a;
+} 
 
 .login-item{
     margin: 1rem;

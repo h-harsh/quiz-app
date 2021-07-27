@@ -1,9 +1,59 @@
 .App {
   text-align: center;
+  background-color: #7cc6fe !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.sub-app{
+  margin-top: 5rem;
 }
 
 a, Link{
   text-decoration: none;
   color: black;
 }
+/* Home responsiveness */
 
+
+
+/* For quiz history page */
+.quiz-history-intro{
+  background-color: #252d4a;
+  width: 15rem;
+  height: min-content;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 10px 10px 42px 0px rgb(0 0 0 / 75%);
+  color: white;
+  font-size: 1.3rem;
+  width: 60%;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.common-box-table{
+  background-color: #252d4a;
+  width: 30rem;
+  min-height: 200px;
+  height: min-content;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 10px 10px 42px 0px rgb(0 0 0 / 75%);
+  color: white;
+  font-size: 1rem;
+}
+th{
+  font-size: 1.3rem;
+}
+td{
+  border: 1px solid white;
+  padding: 0.1rem;
+}
+@media screen and (max-width: 525px){
+  .common-box-table{
+      width: auto !important;
+      margin: auto !important;
+  }
+}

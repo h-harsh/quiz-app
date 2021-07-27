@@ -10,10 +10,9 @@ function App() {
   return (
     <div className="App">
       <NavBar/>
-      <div >
+      <div className="sub-app" >
       <Routes>
       <Route path="/" element={<Home />} />
-      
       <PrivateRoute path="rules" element={<Rules />} />
       <PrivateRoute path="/play" element={<QuizPlay />} /> 
       <PrivateRoute path="/end" element={<QuizEnd />} />

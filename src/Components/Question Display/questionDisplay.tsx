@@ -3,6 +3,8 @@ import { useNavigate } from "react-router";
 import { useQuiz } from "../Quiz Context/quizContext";
 import { postScore } from "../../utils/apiCalls";
 import { useAuth } from "../Auth/authContext";
+import './questionDisplay.css'
+import { CircularProgress, CircularProgressLabel } from "@chakra-ui/react"
 
 export const NewQuestionDisplay = () => {
   const { state, dispatch } = useQuiz();
@@ -30,17 +32,24 @@ export const NewQuestionDisplay = () => {
 
   if (state.questionNo > 4 ) {
     navigate("/end");
-    dispatch({ type: "END_QUIZ" });
+    // dispatch({ type: "END_QUIZ" });
     // postScore(token, state.quizData.quizName, state.score);
   }
   return (
     <>
 
       {state.quizStatus === "true"  && state.quizData !== undefined? (
-        <div>
-          <h1>{count}</h1>
-          <h2>{state.questionNo}</h2>
-          <h1>{state.quizData?.questions[state.questionNo - 1].question}</h1>
+        <div className="common-box-ques">
+          
+          <div className="ques-item">
+          <CircularProgress value={count} min={0} max={30} size="4rem" color="green.400">
+            <CircularProgressLabel>{count}</CircularProgressLabel>
+          </CircularProgress>
+          </div>
+
+          <h1 className="main-ques"> {state.questionNo}/{state.quizData.questions.length - 1} Q.  {state.quizData?.questions[state.questionNo - 1].question}</h1>
+
+          <div className="options">
           {state.quizData?.questions[state.questionNo - 1].options.map(
             (item) => {
               return (
@@ -52,6 +61,9 @@ export const NewQuestionDisplay = () => {
               );
             }
           )}
+          </div>
+
+            <div className="ques-btns">
           <button
             onClick={() => {
               dispatch({ type: "SKIP" });
@@ -68,6 +80,8 @@ export const NewQuestionDisplay = () => {
           >
             End
           </button>
+            </div>
+
         </div>
       ) : navigate("/") }
 
