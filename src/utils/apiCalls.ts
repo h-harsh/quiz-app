@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const baseurl = "http://127.0.0.1:7000"
+export const baseurl = "https://fin-quiz-be.herokuapp.com"
 
 // type userQuizData = userQuizDatas[]
 
