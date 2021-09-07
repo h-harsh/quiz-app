@@ -15,9 +15,9 @@ export const SideBar = ({ status, showSideBar }) => {
         <li onClick={showSideBar}>
           <Link to="/playedQuizes"><i className="fas fa-medal"></i>  Played Quizes</Link>
         </li>
-        <li onClick={showSideBar}>
+        {/* <li onClick={showSideBar}>
           <Link to="/leaderboard"><i className="fas fa-trophy"></i> LeaderBoard</Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
