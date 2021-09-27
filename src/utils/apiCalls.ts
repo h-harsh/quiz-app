@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-export const baseurl = "https://fin-quiz-be.herokuapp.com"
+// export const baseurl = "https://fin-quiz-be.herokuapp.com"
+export const baseurl = "https://server-quizify.harshporwal1.repl.co"
 
 // type userQuizData = userQuizDatas[]
 
