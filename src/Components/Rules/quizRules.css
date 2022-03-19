@@ -1,0 +1,32 @@
+
+  .common-box-rules{
+    background-color: #252d4a;
+    /* width: 19rem; */
+    min-height: 10rem;
+    height: min-content;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 10px 10px 42px 0px rgb(0 0 0 / 75%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: white;
+    margin: 1.5rem;
+  }
+  .common-box-rules ul{
+    list-style: none;
+  }
+
+  .common-box-rules button{
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    border: 3px solid #455f79;
+    border-radius: 0.6rem;
+    padding: 0.3rem 1rem;
+    font-weight: bold;
+}
+.common-box-rules button:hover{
+    background-color: whitesmoke;
+    color: #252d4a;
+    transition: 0.5s;
+}

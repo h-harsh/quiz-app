@@ -1,0 +1,44 @@
+.sel-box-container{
+    display: flex;
+    margin: 1.5em;
+    flex-wrap: wrap;
+}
+
+.common-box-sel{
+    background-color: #252d4a;
+    width: 19rem;
+    min-height: 10rem;
+    height: min-content;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 10px 10px 42px 0px rgb(0 0 0 / 75%);
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+    margin: 1.5rem;
+  }
+.cb-custom{
+    display: flex;
+    flex-direction: column;
+}
+.cb-custom h1{
+    font-size: 1.8rem;
+}
+.cb-custom button{
+    font-size: 1.2rem;
+    border: 3px solid #455f79;
+    border-radius: 0.6rem;
+    padding: 0.3rem 1rem;
+    font-weight: bold;
+}
+.cb-custom button:hover{
+    background-color: whitesmoke;
+    color: #252d4a;
+    transition: 0.5s;
+}
+
+@media screen and (max-width: 900px) {
+    .common-box-sel{
+        margin: 0.5rem auto;
+    }
+}
