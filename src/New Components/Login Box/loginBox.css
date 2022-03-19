@@ -1,0 +1,91 @@
+.login-container {
+  display: flex;
+  max-width: 55rem;
+  height: 32rem;
+  margin-top: 3.5rem;
+}
+.login-image-container,
+.login-data-container {
+  /* width: 50%; */
+  padding: 2rem;
+}
+.login-image-container {
+  background-color: var(--primaryColor);
+  padding: 4rem;
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-data-container {
+  width: 45%;
+
+  background-color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.login-image {
+  width: 100%;
+  /* object-fit: contain; */
+}
+.login-input {
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  background-color: transparent;
+  color: var(--textColor);
+  width: 12rem;
+  /* padding: 0  0.3rem; */
+}
+.login-input:focus {
+  border: none;
+  border-bottom: 1px solid var(--primaryShadeLight);
+  outline: none;
+  background-color: transparent;
+  color: var(--textColor);
+  width: 12rem;
+  /* padding: 0  0.3rem; */
+}
+
+.login-data-sub-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+.each-data-cont {
+  margin: 0.5rem 0;
+}
+.each-data-cont p {
+  text-align: left;
+  padding-left: 0;
+  color: var(--textColor);
+  /* margin-bottom: -0.3rem; */
+  font-size: 0.9rem;
+}
+.for-login-btn-cont {
+  padding-top: 1rem;
+}
+.for-signup-btn-cont {
+  padding: 0 1.5rem;
+}
+.book-store-tagline {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--secondaryColor);
+}
+@media screen and (max-width: 500px) {
+  .login-image-container {
+    display: none;
+  }
+  .login-data-container {
+    width: 100%;
+  }
+}
+
+.lgpagelogo-cont {
+  width: 13rem;
+  margin: 0 auto;
+}

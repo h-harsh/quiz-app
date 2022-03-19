@@ -1,0 +1,55 @@
+.p-button {
+  display: inline-block;
+  /* margin: 20px 0; */
+  padding: 9px 29px;
+  border-radius: 24px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 25px;
+  text-decoration: none;
+  cursor: pointer;
+  min-width: 8rem;
+}
+
+.p-button-primary {
+  color: #ffffff;
+  background-color: var(--primaryColor);
+  /* border: 2px solid var(--secondaryColor); */
+}
+.p-button-primary:hover {
+  background: var(--primaryShadeLight);
+  border: 2px solid var(--primaryAccentColor);
+}
+
+.p-button-secondary {
+  color: white;
+  background-color: var(--secondaryColor);
+  /* border: 2px solid var(--secondaryColor); */
+}
+.p-button-secondary:hover {
+  background-color: var(--secondaryShadeLight) !important ;
+}
+.p-button-tertiary {
+  color: var(--primaryColor);
+  background-color: white;
+  border: 2px solid var(--primaryColor);
+}
+.p-button-tertiary:hover {
+  background-color: var(--secondaryColor) !important ;
+  color: white;
+}
+
+@media screen and (max-width: 375px) {
+  .p-button {
+    padding: 5px 17px;
+    border-radius: 24px;
+    font-size: 1.1rem;
+    line-height: 25px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .nm-btn2{
+    min-width: 8rem;
+  }
+}

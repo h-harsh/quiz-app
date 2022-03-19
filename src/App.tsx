@@ -4,6 +4,10 @@ import {Routes, Route} from 'react-router-dom'
 import {Home, QuizPlay, QuizEnd, Rules, Login, Signup, QuizHistory, LeaderBoard} from './Pages/index'
 import { NavBar } from './Components/Nav Bar/navBar';
 import {PrivateRoute} from './Pages/PrivateRoute'
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+// import "react-toastify/dist/ReactToastify.css";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
 
 function App() {
@@ -23,6 +27,7 @@ function App() {
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<Signup/>} />
     </Routes>
+    <ToastContainer position="bottom-right" theme="dark" autoClose={3000} />
     </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { SignUpBox } from "../Components/Signup Box/signUpBox"
+import { SignUpBox } from "../New Components"
 
 export const Signup = () => {
     return(

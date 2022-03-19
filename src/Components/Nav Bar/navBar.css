@@ -6,10 +6,22 @@
     border: none !important;
     color: white;
 }
-/* .nav-itm  a{
-    color: black !important;
-} */
-
+.nav-itm {
+    margin: 0;
+}
+nav{
+    box-shadow: none !important;
+}
+.just{
+    margin: 0;
+    padding: 0;
+}
+.nav-item-icon{
+    font-size: 1.8rem;
+}
+.resp-icon{
+    margin: 0.5rem;
+}
 @media screen and (max-width: 500px){
     .resp-txt {
         display: none;
@@ -23,3 +35,13 @@
         margin: 0.2rem;
     }
 }
+
+
+.nblogo-cont{
+    object-fit: cover;
+    width: 10rem;
+    margin: 0.6rem;
+  }
+  .nblogo-img{
+    max-width: 100%;
+  }

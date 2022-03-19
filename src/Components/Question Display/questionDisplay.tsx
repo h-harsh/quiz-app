@@ -5,6 +5,7 @@ import { postScore } from "../../utils/apiCalls";
 import { useAuth } from "../Auth/authContext";
 import "./questionDisplay.css";
 import { CircularProgress, CircularProgressLabel } from "@chakra-ui/react";
+import { TertiaryButton, SecondaryButton } from "../../New Components";
 
 export const NewQuestionDisplay = () => {
   const { state, dispatch } = useQuiz();
@@ -38,7 +39,7 @@ export const NewQuestionDisplay = () => {
   return (
     <>
       {state.quizStatus === "true" && state.quizData !== undefined ? (
-        <div className="common-box-ques">
+        <div className="common-box-ques only-card">
           <div className="ques-item">
             <CircularProgress
               value={count}
@@ -62,11 +63,10 @@ export const NewQuestionDisplay = () => {
               (item) => {
                 return (
                   <button
-                    onClick={() =>
-                      {dispatch({ type: "ANSWERED", payload: item })
+                    onClick={() => {
+                      dispatch({ type: "ANSWERED", payload: item });
                       setCount(30);
-                    }
-                    }
+                    }}
                   >
                     {item.text}
                   </button>
@@ -76,6 +76,22 @@ export const NewQuestionDisplay = () => {
           </div>
 
           <div className="ques-btns">
+            <TertiaryButton
+              text="Skip"
+              clickHandler={() => {
+                dispatch({ type: "SKIP" });
+                setCount(30);
+              }}
+            />
+            <SecondaryButton
+              text="End"
+              clickHandler={() => {
+                dispatch({ type: "END_QUIZ" });
+                navigate("/end");
+              }}
+            />
+          </div>
+          {/* <div className="ques-btns">
             <button
               onClick={() => {
                 dispatch({ type: "SKIP" });
@@ -92,7 +108,7 @@ export const NewQuestionDisplay = () => {
             >
               End
             </button>
-          </div>
+          </div> */}
         </div>
       ) : (
         navigate("/")

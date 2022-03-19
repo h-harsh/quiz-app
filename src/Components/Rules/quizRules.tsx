@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useQuiz } from "../Quiz Context/quizContext";
 import "./quizRules.css";
+import { TertiaryButton } from "../../New Components";
 
 export const QuizRulesComp = () => {
   const { dispatch, state } = useQuiz();
@@ -8,7 +9,7 @@ export const QuizRulesComp = () => {
   return (
     <>
       {state.quizData !== undefined ? (
-        <div className="common-box-rules">
+        <div className="common-box-rules only-card">
           <h1>Rules :</h1>
           <ul>
             <li>Do not refresh the page</li>
@@ -17,12 +18,8 @@ export const QuizRulesComp = () => {
             <li>5 Marks for a right answer</li>
             <li>-3 Marks for wrong answer</li>
           </ul>
-          <Link to="/play">
-            <button
-              onClick={() => dispatch({ type: "START_QUIZ", payload: "true" })}
-            >
-              Start Quiz
-            </button>
+          <Link style={{margin:'1rem'}} to="/play">
+            <TertiaryButton text="Start Quiz" clickHandler={() => dispatch({ type: "START_QUIZ", payload: "true" })}  />
           </Link>
         </div>
       ) : (

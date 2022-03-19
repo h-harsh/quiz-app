@@ -2,7 +2,9 @@ import { createContext, useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { baseurl } from "../../utils/apiCalls";
-import { useEffect } from "react";
+
+import { toast } from "react-toastify";
+
 
 type Token = string | null;
 
@@ -44,6 +46,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   setupAuthHeaderForServiceCalls(token);
 
   const loginHandler = async (userName: string, password: string) => {
+    const toastId = toast.loading("Logging In")
     try {
       const response = await axios.post(
         `${baseurl}/user/login`,
@@ -56,6 +59,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       );
       setLoginState(response.data.status);
       if (response.data.status === "login success") {
+        toast.update(toastId, { render: "You are now logged in", type: "success", isLoading: false, autoClose: 2000,  });
         localStorage.setItem("token", JSON.stringify(response.data.token));
         // localStorage.setItem("login", JSON.stringify({loginStatus: true, token: response.data.token}));
         setToken(response.data.token);
@@ -63,6 +67,8 @@ export const AuthProvider: React.FC = ({ children }) => {
         return navigate("/");
       }
     } catch (error) {
+      toast.update(toastId, { render: "Login failed, Try again", type: "error", isLoading: false, autoClose: 2000,  });
+
       console.log(error.response);
       console.log(error.response.data.status);
     }

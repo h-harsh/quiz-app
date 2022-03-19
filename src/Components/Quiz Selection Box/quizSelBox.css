@@ -11,7 +11,7 @@
     height: min-content;
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 10px 10px 42px 0px rgb(0 0 0 / 75%);
+    /* box-shadow: 10px 10px 42px 0px rgb(0 0 0 / 75%); */
     display: flex;
     justify-content: space-evenly;
     color: white;
