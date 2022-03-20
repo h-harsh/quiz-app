@@ -30,7 +30,11 @@
 .sub-app {
   margin-top: 2.5rem;
 }
-
+/* @media screen and (max-width: 525px) {
+  .sub-app{
+    margin-top: 6rem;
+  }
+} */
 a,
 Link {
   text-decoration: none;
@@ -43,15 +47,17 @@ Link {
   background-color: #252d4a;
   width: 15rem;
   height: min-content;
-  border-radius: 15px;
   padding: 20px;
-  box-shadow: 10px 10px 42px 0px rgb(0 0 0 / 75%);
+  /* box-shadow: 10px 10px 42px 0px rgb(0 0 0 / 75%); */
   color: white;
   font-size: 1.3rem;
   width: 60%;
-  margin: auto;
-  margin-top: 1rem;
+  margin: auto ;
+  margin-top: 1rem ;
   margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: #00000040 0 8px 25px;
 }
 .common-box-table {
   background-color: #252d4a;
@@ -60,22 +66,27 @@ Link {
   height: min-content;
   border-radius: 15px;
   padding: 20px;
-  box-shadow: 10px 10px 42px 0px rgb(0 0 0 / 75%);
+  /* box-shadow: 10px 10px 42px 0px rgb(0 0 0 / 75%); */
   color: white;
   font-size: 1rem;
 }
 th {
   font-size: 1.3rem;
+  padding: 0.5rem;
 }
 td {
   border: 1px solid white;
-  padding: 0.1rem;
+  padding: 0.5rem;
+
 }
 @media screen and (max-width: 525px) {
   .common-box-table {
     width: auto !important;
     margin: auto !important;
   }
+}
+.loder-text-box{
+  background-color: red;
 }
 
 /* //Common  */
@@ -216,4 +227,22 @@ h6 {
 }
 .bg-white {
   background-color: white;
+}
+
+.other-outer{
+  margin-top: 5rem;
+}
+.main-page-data{
+  font-size: 3rem;
+  font-weight: bolder;
+}
+
+@media (max-width: 580px) {
+  .main-page-data{
+    font-size: 2rem;
+    font-weight: bolder;
+  }
+  .home-outer{
+    margin-top: 5rem;
+  }
 }

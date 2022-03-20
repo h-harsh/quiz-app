@@ -34,6 +34,8 @@ export const AuthProvider: React.FC = ({ children }) => {
     localStorage.removeItem("token");
     setToken(null);
     setLoginState("");
+     toast.success("You have been Logged out")
+
   };
 
   function setupAuthHeaderForServiceCalls(token: Token) {
