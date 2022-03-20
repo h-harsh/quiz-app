@@ -1,7 +1,7 @@
 /*eslint-disable */
 import { useState, useEffect } from "react";
 import "./signupBox.css";
-import loginImage from "./signup4.svg";
+import loginImage from "./signup2.svg";
 import logo from "../../logo.png";
 import { useAuth } from "../../Components/Auth/authContext";
 import { baseurl } from "../../utils/apiCalls";
@@ -70,7 +70,7 @@ const SignUpBox = () => {
         <div className=" lgpagelogo-cont">
           <img className="nblogo-img" src={logo} alt="" />
         </div>
-        <h3 className="book-store-tagline">Be where the world is going</h3>
+        <h3 className="book-store-tagline">We quiz therefore we are.</h3>
         <div className="login-data-sub-box">
           <div className="each-data-cont">
             <p>Full name</p>

@@ -26,7 +26,7 @@ const LoginBox = () => {
         <img className="nblogo-img" src={logo} alt="" />
       </div>
 
-        <h3 className="book-store-tagline" >Be where, the world is going</h3>
+        <h3 className="book-store-tagline" >We quiz therefore we are.</h3>
         <div className="login-data-sub-box">
           <div className="each-data-cont">
             <p>Username or Email</p>
