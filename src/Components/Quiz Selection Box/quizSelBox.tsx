@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import { useQuiz } from "../Quiz Context/quizContext";
 import "./quizSelBox.css";
 import {
-  PrimaryButton,
-  SecondaryButton,
   TertiaryButton,
 } from "../../New Components";
 

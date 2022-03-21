@@ -11,7 +11,7 @@ import { useAuth } from "../../Components/Auth/authContext";
 const LoginBox = () => {
   const [userName, setUserName] = useState("h-harsh");
   const [password, setPassword] = useState("harsh");
-  const {loginHandler, loginState} = useAuth()
+  const {loginHandler} = useAuth()
   
 
   return (

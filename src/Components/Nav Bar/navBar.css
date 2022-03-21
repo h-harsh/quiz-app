@@ -5,6 +5,7 @@
     background-color: #252d4a;
     border: none !important;
     color: white;
+    
 }
 .nav-itm {
     margin: 0;
@@ -29,12 +30,11 @@ nav{
     .resp-icon{
         display: inline-block;
     }
-}
-@media screen and (max-width: 400px){
-    .nav-itm{
-        margin: 0.2rem;
+    .nblogo-cont{
+        width: 4rem;
     }
 }
+
 
 
 .nblogo-cont{
@@ -45,3 +45,21 @@ nav{
   .nblogo-img{
     max-width: 100%;
   }
+
+  @media screen and (max-width: 400px){
+    .nav-itm{
+        margin: 0;
+    }
+    .nblogo-cont{
+        width: 4rem;
+    }
+    #myTopNav{
+        height: 4rem;
+        box-sizing: border-box;
+        
+    }
+    .nav-item-icon{
+        font-size: 1.5rem;
+    }
+
+}

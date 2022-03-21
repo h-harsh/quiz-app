@@ -1,24 +1,25 @@
 .login-container {
   display: flex;
-  max-width: 55rem;
+  max-width: 50rem;
   height: 32rem;
-  margin-top: 3.5rem;
+  margin-top: 1.5rem;
+  box-sizing: border-box;
 }
 .login-image-container,
 .login-data-container {
-  /* width: 50%; */
+  width: 50%;
   padding: 2rem;
 }
 .login-image-container {
   background-color: var(--primaryColor);
   padding: 4rem;
-  width: 55%;
+  /* width: 55%; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .login-data-container {
-  width: 45%;
+  /* width: 45%; */
 
   background-color: white;
   text-align: center;

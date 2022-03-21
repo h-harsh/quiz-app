@@ -5,8 +5,6 @@ import { useAuth } from "../Auth/authContext";
 import "./navBar.css";
 import "../Side Bar/sideBar.css";
 import {
-  PrimaryButton,
-  SecondaryButton,
   TertiaryButton,
 } from "../../New Components";
 import logo from '../../logo.png'

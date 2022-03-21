@@ -6,6 +6,14 @@ import { TertiaryButton } from "../../New Components";
 export const QuizRulesComp = () => {
   const { dispatch, state } = useQuiz();
   const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     if(state.quizData === undefined){
+  //       navigate("/")
+  //     }
+  //   }, 5000) 
+  // }, [state.quizData])
   return (
     <>
       {state.quizData !== undefined ? (

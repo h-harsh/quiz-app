@@ -1,7 +1,7 @@
+/* eslint-disable */
 import { useQuiz } from "../Components/Quiz Context/quizContext";
 import { useEffect } from "react";
 import { useAuth } from "../Components/Auth/authContext";
-import { isTemplateMiddle } from "typescript";
 
 export const QuizHistory = () => {
   const { state, fetchUserData } = useQuiz();
